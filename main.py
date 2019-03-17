@@ -5,8 +5,6 @@ import os
 from dotenv import load_dotenv
 import requests
 
-load_dotenv()
-TOKEN = os.getenv('TOKEN')
 
 def reduce_url(input_url, TOKEN):
     url = 'https://api-ssl.bitly.com/v4/shorten'
@@ -54,6 +52,7 @@ def check_input_link(input_url, TOKEN):
     response = requests.get(url, headers = headers)
     return response.ok
 
+
 def create_parser():
     parser = argparse.ArgumentParser(description='Программа сокращает ссылку, либо выдает статистику по сокращенной ссылке')
     parser.add_argument('link')
@@ -61,9 +60,12 @@ def create_parser():
 
 
 def main():
+    load_dotenv()
+    TOKEN = os.getenv('TOKEN')
     parser = create_parser()
     args = parser.parse_args()
     input_url = args.link
+
     if check_input_link(input_url, TOKEN):
         date_clicks = count_clicks(input_url, TOKEN)
         if date_clicks is None:
