@@ -27,8 +27,3 @@ $ python main.py bit.ly/2IWLf0P
 08.03.2019 - 1 clicks
 06.03.2019 - 6 clicks
 ```
-
-
-### Project Goals
-
-The code is written for educational purposes on online-course for web-developers dvmn.org
